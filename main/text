@@ -1,2 +1,19 @@
-#HEllo world
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h> // Make sure this library is installed
 
+// Set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 16, 2); 
+
+void setup() {
+  // Initialize standard I2C on Pins 18 (SDA) and 19 (SCL)
+  Wire.begin(); 
+  
+  lcd.init();                      // Initialize the LCD
+  lcd.backlight();                 // Turn on the backlight
+  lcd.setCursor(0, 0);
+  lcd.print("Teensy 4.0 Ready");
+}
+
+void loop() {
+  // Your code here
+}
